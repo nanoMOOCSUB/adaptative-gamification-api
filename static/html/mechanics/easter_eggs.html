@@ -1,0 +1,38 @@
+<div style="text-align:center">
+  <h2 id = "header-egg"></h2>     
+  <div id="egg-content"></div>
+  <param id = "num_clicks" value = 0>
+  <param id = "egg-html" value = "">
+
+</div>
+
+<script>
+
+    function approachEgg(){
+         document.querySelector("#num_clicks").value++;
+         //alert(document.querySelector("#num_clicks").value);
+         if(document.querySelector("#num_clicks").value >= 5){
+             document.querySelector("#num_clicks").value = 0;
+             document.querySelector("#egg-content").innerHTML = document.querySelector("#egg-html").value;
+            $(document.querySelector("#egg-html").value).appendTo(document.body); 
+         }
+    }
+
+    fetch("called_mechanic_url") // WARNING: should be replaced by a concrete mechanic url
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            document.querySelector("#egg-html").value = myJson.egg_html;
+            document.querySelector("#header-egg").innerHTML = myJson.title;
+            document.querySelector("#egg-content").innerHTML = '<a onclick="javascript:approachEgg()">' +
+                                                                          '<img class="card-img-top" src="' + myJson.feedback + '" alt="Card image" style="width:300px; height:300px;"></a>';
+             
+        })
+        .catch(function (error) {
+            console.log("Error: " + error);
+        });
+</script> 
+
+
+      

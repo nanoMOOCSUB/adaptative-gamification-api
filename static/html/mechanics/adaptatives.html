@@ -1,0 +1,24 @@
+
+<div>
+
+  	<div id="incr"></div>
+  	<div id="incr5"></div>
+
+</div>
+
+<script>
+            fetch("called_mechanic_url")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    
+                    document.querySelector("#incr").innerHTML = (myJson.html);
+                    $(myJson.html).appendTo(document.body);
+                    
+                })
+                .catch(function (error) {
+                    console.log("Error: " + error);
+                });
+    			
+</script>

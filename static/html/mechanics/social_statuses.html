@@ -1,0 +1,296 @@
+<head>
+
+</head>
+
+<style>
+.scrollable-content {
+    padding-left: 20px;
+  padding-right: 20px;
+  height: 350px;
+  min-width: 100%;
+  overflow: auto;
+  background-color: white;
+}
+
+.mytab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the mytab */
+.mytab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.mytab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current mytablink class */
+.mytab button.active {
+  background-color: #ccc;
+}
+
+/* Style the mytab content */
+.mytabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  
+}
+
+</style>
+
+<div style="text-align:center">
+  <h2 id = "header-pts"></h2>     
+  <param id="comp" value="">  
+</div>
+    
+<div class="container-fluid" >
+<div class= "row">
+
+    <div class="container-fluid" style="width:80%;">
+        <div id="prof-image-stat" style="float:left;padding-left:100px;margin-right:100px;">            
+            
+        </div>
+        <h4>
+            
+            <div style="float:left;padding:30px;">
+                <div class="row">
+                     <div id="following-label" class="col-md-6" style="padding=30px;"><b></b></div>
+                     <div id="following" class="col-md-6" style="padding=30px; padding-left:30px;"></div>
+                </div>
+            </div>
+            <div style="float:left;padding:30px;">
+                <div class="row">
+                     <div id="followers-label" class="col-md-7" style="padding=40px;"><b></b></div>
+                     <div id="followers" class="col-md-5" style="padding=40px;"></div>
+                </div>
+            </div>
+            <div style="float:left;padding:30px;">
+                <div class="row">
+                     <div id="views-label"class="col-md-6" style="padding=40px;"><b></b></div>
+                     <div id="views" class="col-md-6" style="padding=40px;"></div>
+                </div>
+            </div>
+            <div style="float:left;padding:30px;">
+                <div class="row">
+                     <div id="score-label" class="col-md-6" style="padding=30px;"><b></b></div>
+                     <div id="score" class="col-md-6" style="padding=30px;"></div>
+                </div>
+            </div>
+            <div style="float:left;padding:30px;">
+                <div class="row">
+                     <div id="level-label" class="col-md-6" style="padding=30px;"><b></b></div>
+                     <div id="level" class="col-md-6" style="padding=30px;"></div>
+                </div>
+            </div>
+            <div style="float:left;padding:30px;">
+                <div class="row">
+                     <div id="coin-label" class="col-md-6" style="padding=30px;"><b></b></div>
+                     <div id="coin" class="col-md-6" style="padding=30px;"></div>
+                </div>
+            </div>
+        </h4>
+    </div>
+</div>
+
+</div>
+    
+
+<div class="container-fluid">   
+    <div class="row">
+        <div class="mytab" style="width:100%;" id ="tabbuttons">
+            
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid"> 
+<div class="row" >
+    <div id="TopFriendly" class="mytabcontent" style="text-align:center;width:100%;">
+        <div class="scrollable-content"> <div id="incr-top-friendly"></div></div>
+        <script>
+
+            document.querySelector("#tabbuttons").innerHTML = '<button class="mytablinks" onclick="openTab(event, \'TopFriendly\')" id="defaultOpen" style="width:16.666%;height:100px;">Top Friendly</button>'+
+                                                                    '<button class="mytablinks" onclick="openTab(event, \'TopFollowed\')"  style="width:16.666%; height:100px; ">Top Socializer</button>'+
+                                                                    '<button class="mytablinks" onclick="openTab(event, \'TopViews\')" style="width:16.666%;height:100px;">Top Popular</button>'+
+                                                                    '<button class="mytablinks" onclick="openTab(event, \'TopScore\')" id="defaultOpen" style="width:16.666%; height:100px; ">Top Scores</button>'+
+                                                                    '<button class="mytablinks" onclick="openTab(event, \'TopLevel\')" style="width:16.666%;height:100px; ">Top Levels</button>'+
+                                                                    '<button class="mytablinks" onclick="openTab(event, \'TopCoin\')" style="width:16.666%;height:100px; ">Top $</button>';
+            fetch("http://127.0.0.1:8080/api/g_mechanics/109/?user=dynaimic_user&show_title=false&dynamic_index=friendly")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    document.querySelector("#incr-top-friendly").innerHTML = (myJson.html);
+                    $(myJson.html).appendTo(document.body);    
+                })
+                .catch(function (error) {
+                    console.log("Error: " + error);
+                });
+        </script>
+    </div>
+
+    <div id="TopFollowed" class="mytabcontent" style="text-align:center;width:100%;">
+        <div class="scrollable-content"><div id="incr-top-followed"></div></div>
+        <script>
+            fetch("http://127.0.0.1:8080/api/g_mechanics/110/?user=dynaimic_user&show_title=false&dynamic_index=followed")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    document.querySelector("#incr-top-followed").innerHTML = (myJson.html);
+                    $(myJson.html).appendTo(document.body);    
+                })
+                .catch(function (error) {
+                    console.log("Error: " + error);
+                });
+        </script>
+    </div>
+
+    <div id="TopViews" class="mytabcontent" style="text-align:center;width:100%;">
+        <div class="scrollable-content"><div id="incr-top-views"></div></div>
+        <script>
+            fetch("http://127.0.0.1:8080/api/g_mechanics/111/?user=dynaimic_user&show_title=false&dynamic_index=views")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    document.querySelector("#incr-top-views").innerHTML = (myJson.html);
+                    $(myJson.html).appendTo(document.body);    
+                })
+                .catch(function (error) {
+                    console.log("Error: " + error);
+                });
+        </script>
+    </div>
+    <div id="TopScore" class="mytabcontent" style="text-align:center;width:100%;">
+        <div class="scrollable-content"><div id="incr-top-score"></div></div>
+        <script>
+            fetch("http://127.0.0.1:8080/api/g_mechanics/106/?user=dynaimic_user&show_title=false&dynamic_index=score")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    document.querySelector("#incr-top-score").innerHTML = (myJson.html);
+                    $(myJson.html).appendTo(document.body);    
+                })
+                .catch(function (error) {
+                    console.log("Error: " + error);
+                });
+        </script>
+    </div>
+    <div id="TopLevel" class="mytabcontent" style="text-align:center;width:100%;">
+        <div class="scrollable-content"><div id="incr-top-level"></div></div>
+        <script>
+            fetch("http://127.0.0.1:8080/api/g_mechanics/107/?user=dynaimic_user&show_title=false&dynamic_index=level")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    document.querySelector("#incr-top-level").innerHTML = (myJson.html);
+                    $(myJson.html).appendTo(document.body);    
+                })
+                .catch(function (error) {
+                    console.log("Error: " + error);
+                });
+        </script>
+    </div>
+       
+    <div id="TopCoin" class="mytabcontent" style="text-align:center;width:100%;">
+        <div class="scrollable-content"><div id="incr-top-coin"></div></div>
+        <script>
+            fetch("http://127.0.0.1:8080/api/g_mechanics/108/?user=dynaimic_user&show_title=false&dynamic_index=coin")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    document.querySelector("#incr-top-coin").innerHTML = (myJson.html);
+                    $(myJson.html).appendTo(document.body);    
+                })
+                .catch(function (error) {
+                    console.log("Error: " + error);
+                });
+        </script>
+    </div>
+</div> 
+</div>  
+  
+
+
+<script>
+    fetch("http://127.0.0.1:8080/api/gamers/dynamic_user/")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            document.querySelector("#prof-image-stat").innerHTML = '<hr><img id = "profile-image-stat" src="http://127.0.0.1:8080/media/social_icons/' + myJson.social_profile.image + '.png" id="friend-profile-img" style="width:200%;max-width:200px;min-width:50px;" />'+
+                                                                '<h2 id="uname-stat" style="margin-top:30px;"></h2><hr>';
+            document.querySelector("#following-label").innerHTML = "<b>Following</b>";
+            document.querySelector("#followers-label").innerHTML = "<b>Followers</b>";
+            document.querySelector("#views-label").innerHTML = "<b>Views</b>";
+            document.querySelector("#score-label").innerHTML = "<b>Score</b>";
+            document.querySelector("#level-label").innerHTML = "<b>Level</b>";
+            document.querySelector("#coin-label").innerHTML = "<b>$</b>";
+
+            document.querySelector("#uname-stat").innerHTML = myJson.user.username;
+            document.querySelector("#profile-image-stat").src = "http://127.0.0.1:8080/media/social_icons/" + myJson.social_profile.image + ".png";
+            document.querySelector("#following").innerHTML = myJson.social_profile.data.friends.length;
+            document.querySelector("#followers").innerHTML = myJson.social_profile.data.followers;
+            document.querySelector("#views").innerHTML = myJson.social_profile.data.views;
+            document.querySelector("#score").innerHTML = myJson.gamer_profile.data.score;
+            document.querySelector("#level").innerHTML = myJson.gamer_profile.data.level;
+            document.querySelector("#coin").innerHTML = myJson.gamer_profile.data.$;
+        })
+        .catch(function (error) {
+            console.log("Error: " + error);
+        });
+</script>
+
+
+<script>
+
+function openTab(evt, tabName) {
+
+  var i, mytabcontent, mytablinks;
+  mytabcontent = document.getElementsByClassName("mytabcontent");
+  for (i = 0; i < mytabcontent.length; i++) {
+    mytabcontent[i].style.display = "none";
+  }
+  mytablinks = document.getElementsByClassName("mytablinks");
+  for (i = 0; i < mytablinks.length; i++) {
+    mytablinks[i].className = mytablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+
+    fetch("called_mechanic_url") // WARNING: should be replaced by a concrete mechanic url
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            document.querySelector("#header-pts").innerHTML = myJson.title;    
+            document.querySelector("#comp").value = myJson.competitiveness;  
+
+        })
+        .catch(function (error) {
+            console.log("Error: " + error);
+        });
+</script> 
+
+
+      

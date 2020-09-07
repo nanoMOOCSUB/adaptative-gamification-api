@@ -1,0 +1,19 @@
+#open database
+python manage.py dbshell
+
+## reset id counter
+delete from your_table;    
+delete from sqlite_sequence where name='your_table';
+
+# EXAMPLE :: CLEAR DDBB
+
+delete from api_gamer;
+delete from sqlite_sequence where name='api_gamer';
+delete from api_socialprofile;
+delete from sqlite_sequence where name='api_socialprofile';
+delete from api_emotionprofile;
+delete from sqlite_sequence where name='api_emotionprofile';
+delete from api_gamerprofile;
+delete from sqlite_sequence where name='api_gamerprofile';
+delete from auth_user;
+delete from sqlite_sequence where name='auth_user';

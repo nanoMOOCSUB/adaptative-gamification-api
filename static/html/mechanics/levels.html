@@ -1,0 +1,28 @@
+<div style="text-align:center">
+  <h2 id = "header-lvl"></h2>     
+  <div id="value"></div>
+   <div id="progress"></div>
+  
+<script>
+
+    fetch("called_mechanic_url") // WARNING: should be replaced by a concrete mechanic url
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            var percent = 100*myJson.value/ myJson.max_value  + '%';
+            document.querySelector("#header-lvl").innerHTML = myJson.title;
+            document.querySelector("#value").innerHTML = "You have reached " + myJson.by + " " + myJson.value +"!<br><br>" ;
+            document.querySelector("#progress").innerHTML = '<div class="progress">' +
+                                                                '<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="'+ myJson.value +'" aria-valuemin="0" aria-valuemax="'+myJson.max_value+'" style="width:'+percent+'">' +
+                                                                     percent +
+                                                                '</div>' +
+                                                            '</div>';             
+        })
+        .catch(function (error) {
+            console.log("Error: " + error);
+        });
+</script> 
+
+
+      
