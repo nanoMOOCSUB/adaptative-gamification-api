@@ -1,12 +1,16 @@
 # Adaptative Gamification Api
-An api for embed adaptative gamification mechanics (as well as common mechanics) in your web project.
+An api for embed adaptative gamification mechanics (as well as common mechanics) in your web project. All 
 
 ## Features ##
 
 Currently the api generates incrustable code for the following gamification mechanics:
 
-- asds
-- asdasd
+- Development Tools (disruptor)
+- Challenges (disruptor)
+- Easter Eggs (free spirit)
+- Unlockables (free spirit)
+- Badges
+- Levels
 
 ## Installation ##
 
