@@ -24,7 +24,7 @@ Currently the api generates incrustable code for the following gamification mech
 
 ## Installation ##
 
-The api doesn't need any special installation: Just ensure that your virtualenv have installed all requirements (requirements.txt) or use the default venv in this repo (probably not working by dependences with the current development machine).
+The api doesn't need any special installation: Just ensure to install in your virtualenv all requirements (requirements.txt) or use the default venv in this repo (probably not working by dependences with the current development machine).
 
 ## Usage ##
 
