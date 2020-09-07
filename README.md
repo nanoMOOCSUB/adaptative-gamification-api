@@ -1,16 +1,24 @@
 # Adaptative Gamification Api
-An api for embed adaptative gamification mechanics (as well as common mechanics) in your web project. All 
+
+An api for embed adaptative gamification mechanics (as well as common mechanics) in your web project. All data involved with the mechanics is managed through this application, so developers shouldn't care about managing gamification data, while they offer a gamified experience. This is a project from Barcelona University, namely NanoMOOC UB project, so for any use of this application, contact with nanomoocsub
 
 ## Features ##
 
 Currently the api generates incrustable code for the following gamification mechanics:
 
-- Development Tools (disruptor)
-- Challenges (disruptor)
-- Easter Eggs (free spirit)
-- Unlockables (free spirit)
-- Badges
-- Levels
+- Development Tools (Disruptor)
+- Challenges (Disruptor)
+- Easter Eggs (Free spirit)
+- Unlockables (Free spirit)
+- Badges (Achiever)
+- Levels (Achiever)
+- Points (Player)
+- Leaderboards (Player)
+- Lotteries (Player)
+- Social Networks (Socializer)
+- Social Statuses (Socializer)
+- Sharing (Philantropist) :: TO DO
+- Gifts (Philantropist) :: TO DO
 
 ## Installation ##
 
