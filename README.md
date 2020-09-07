@@ -17,8 +17,8 @@ Currently the api generates incrustable code for the following gamification mech
 - Lotteries (Player)
 - Social Networks (Socializer)
 - Social Statuses (Socializer)
-- Sharing (Philantropist) :: TO DO
-- Gifts (Philantropist) :: TO DO
+- Sharing (Philantropist) :: IN PROGRESS
+- Gifts (Philantropist) :: IN PROGRESS
 - Adaptative Mechanic via gamer profiles (Adaptative)
 - Adaptative Mechanic via gamer profiles and interaction statistics (Adaptative)
 
