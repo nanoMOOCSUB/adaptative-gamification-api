@@ -1,6 +1,6 @@
 # Adaptative Gamification Api
 
-An api for embed adaptative gamification mechanics (as well as common mechanics) in your web project. All data involved with the mechanics is managed through this application, so developers shouldn't care about managing gamification data, while they offer a gamified experience. This is a project from Barcelona University, namely NanoMOOC UB project, so for any use of it, contact with nanomoocsub@gmail.com
+An api to generate embedding code of adaptative gamification mechanics (as well as common mechanics), which is easily used in your web project. All data involved with the mechanics is managed through this application, so developers shouldn't care about managing gamification data, while they offer a gamified experience. This is a project from Barcelona University, namely NanoMOOC UB project, so for any use of it, contact with nanomoocsub@gmail.com
 
 ## Features ##
 
@@ -19,6 +19,8 @@ Currently the api generates incrustable code for the following gamification mech
 - Social Statuses (Socializer)
 - Sharing (Philantropist) :: TO DO
 - Gifts (Philantropist) :: TO DO
+- Adaptative Mechanic via gamer profiles (Adaptative)
+- Adaptative Mechanic via gamer profiles and interaction statistics (Adaptative)
 
 ## Installation ##
 
