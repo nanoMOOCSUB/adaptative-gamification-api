@@ -28,5 +28,9 @@ The api doesn't need any special installation: Just ensure that your virtualenv 
 
 ## Usage ##
 
-Use django's runserver to run the application.
+Use django's runserver to run the application:
+
+```bash
+python manage.py runserver
+```
 
